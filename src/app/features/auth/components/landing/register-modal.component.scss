@@ -1,0 +1,146 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-popup {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 340px;
+  max-width: 95vw;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 2100;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+h2 {
+  text-align: center;
+  color: #0078d4;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+
+  label {
+    font-weight: 500;
+    color: #212121;
+    font-size: 1rem;
+  }
+  input {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e0e0e0;
+    font-size: 1rem;
+    transition: border 0.2s;
+    &:focus {
+      border-color: #0078d4;
+      outline: none;
+    }
+  }
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.btn {
+  min-width: 110px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+
+  &.btn-primary {
+    background: #0078d4;
+    color: #fff;
+    &:hover {
+      background: #005a9e;
+    }
+  }
+  &.btn-outline {
+    background: transparent;
+    color: #0078d4;
+    border: 1.5px solid #0078d4;
+    &:hover {
+      background: #e0eaff;
+    }
+  }
+}
+
+.password-group .password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.password-group input {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+.eye-btn {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+}
+.eye-btn .material-icons {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+@media (max-width: 500px) {
+  .modal-popup {
+    min-width: 0;
+    padding: 1.25rem 0.5rem 1rem 0.5rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+}
+
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+.spin {
+  animation: spin 1s linear infinite;
+  font-size: 1.3em;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+} 

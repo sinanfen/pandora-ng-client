@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandora - Secure Password & Data Management</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <img
+              src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg"
+              alt="Pandora Logo"
+              class="logo"
+            />
+            <span class="brand-name">Pandora</span>
+          </div>
+          <div class="navbar-menu">
+            <ul class="nav-links">
+              <li><a href="#features">Features</a></li>
+              <li><a href="#security">Security</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="auth-buttons">
+              <button class="btn btn-outline" (click)="openRegisterModal()">
+                Log In
+              </button>
+              <button class="btn btn-primary" (click)="openRegisterModal()">
+                Sign Up
+              </button>
+            </div>
+          </div>
+          <button class="mobile-menu-toggle">
+            <span class="material-icons">menu</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Your Digital Sanctuary for Passwords & Personal Data</h1>
+            <p>
+              Secure your digital life with Pandora, the all-in-one solution for
+              storing passwords, notes, and sensitive information with
+              military-grade encryption.
+            </p>
+            <div class="hero-cta">
+              <button
+                class="btn btn-primary btn-lg"
+                (click)="openRegisterModal()"
+              >
+                Get Started - It's Free
+              </button>
+              <button class="btn btn-outline btn-lg">
+                <span class="material-icons">play_circle</span>
+                See How It Works
+              </button>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="https://baryon.be/wp-content/uploads/2020/05/3528471-01.jpg"
+              alt="Pandora Dashboard Preview"
+              class="dashboard-preview"
+            />
+            <div class="floating-card card-1">
+              <span class="material-icons">security</span>
+              <span>256-bit Encryption</span>
+            </div>
+            <div class="floating-card card-2">
+              <span class="material-icons">visibility_off</span>
+              <span>Zero-Knowledge Architecture</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-wave">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#f5f9ff"
+              fill-opacity="1"
+              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section class="stats">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <h3>10M+</h3>
+              <p>Secure Passwords</p>
+            </div>
+            <div class="stat-item">
+              <h3>500K+</h3>
+              <p>Happy Users</p>
+            </div>
+            <div class="stat-item">
+              <h3>99.9%</h3>
+              <p>Uptime</p>
+            </div>
+            <div class="stat-item">
+              <h3>0</h3>
+              <p>Data Breaches</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features">
+        <div class="container">
+          <div class="section-header">
+            <h2>Everything You Need for Digital Security</h2>
+            <p>
+              Pandora combines powerful features with simplicity to protect what
+              matters most.
+            </p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span class="material-icons">password</span>
+              </div>
+              <h3>Password Vault</h3>
+              <p>
+                Store and organize all your login credentials in one secure
+                location with easy access whenever you need them.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span class="material-icons">category</span>
+              </div>
+              <h3>Custom Categories</h3>
+              <p>
+                Create and manage custom categories to organize your passwords
+                and personal data exactly how you want.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span class="material-icons">note_alt</span>
+              </div>
+              <h3>Personal Vault</h3>
+              <p>
+                Safely store sensitive notes, documents, and personal
+                information with end-to-end encryption.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span class="material-icons">auto_fix_high</span>
+              </div>
+              <h3>Password Generator</h3>
+              <p>
+                Create strong, unique passwords with our advanced generator to
+                enhance your online security.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span class="material-icons">sync</span>
+              </div>
+              <h3>Cloud Sync</h3>
+              <p>
+                Access your data securely across all your devices with real-time
+                synchronization.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span class="material-icons">phonelink_lock</span>
+              </div>
+              <h3>Two-Factor Authentication</h3>
+              <p>
+                Add an extra layer of security to your account with 2FA
+                protection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Security Section -->
+      <section id="security" class="security">
+        <div class="container">
+          <div class="security-content">
+            <div class="section-header left-aligned">
+              <h2>Bank-Level Security You Can Trust</h2>
+              <p>
+                Your data is protected with the most advanced security measures
+                available.
+              </p>
+            </div>
+            <ul class="security-features">
+              <li>
+                <span class="material-icons">enhanced_encryption</span>
+                <div>
+                  <h4>AES-256 Encryption</h4>
+                  <p>
+                    Military-grade encryption that makes your data unreadable to
+                    anyone without your master key.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="material-icons">gpp_good</span>
+                <div>
+                  <h4>Zero-Knowledge Architecture</h4>
+                  <p>
+                    We can't access your data - only you have the keys to
+                    decrypt your information.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="material-icons">verified_user</span>
+                <div>
+                  <h4>JWT Authentication</h4>
+                  <p>
+                    Secure token-based authentication ensures only you can
+                    access your account.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="material-icons">local_police</span>
+                <div>
+                  <h4>Automatic Timeout</h4>
+                  <p>
+                    Your session automatically locks after inactivity to prevent
+                    unauthorized access.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="security-image">
+            <img
+              src="https://cdni.iconscout.com/illustration/premium/thumb/data-security-illustration-download-in-svg-png-gif-file-formats--protection-secure-privacy-lock-database-cyber-pack-device-illustrations-4077854.png"
+              alt="Security Illustration"
+            />
+          </div>
+        </div>
+        <div class="bg-accent"></div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="how-it-works">
+        <div class="container">
+          <div class="section-header">
+            <h2>How Pandora Works</h2>
+            <p>Three simple steps to secure your digital life</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Create Your Account</h3>
+                <p>
+                  Sign up with your email and create a strong master password
+                  that only you know.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Store Your Data</h3>
+                <p>
+                  Add your passwords, notes, and sensitive information to their
+                  respective vaults.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Access Anywhere</h3>
+                <p>
+                  Retrieve your information securely whenever you need it, from
+                  any device.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="testimonials">
+        <div class="container">
+          <header class="section-header">
+            <h2>What Our Users Say</h2>
+            <p>
+              Join thousands of satisfied users who trust Pandora with their
+              digital security
+            </p>
+          </header>
+          <div class="testimonial-slider-wrapper">
+            <button class="slider-nav prev">
+              <span class="material-icons">chevron_left</span>
+            </button>
+            <div class="testimonial-slider">
+              <article class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    "Pandora has completely transformed how I manage my online
+                    accounts. I used to reuse the same password everywhere, but
+                    now each account has a unique, strong password that I don't
+                    have to remember."
+                  </p>
+                </div>
+                <footer class="testimonial-author">
+                  <img
+                    src="https://img.freepik.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg"
+                    alt="Photo of Sarah J."
+                  />
+                  <div>
+                    <h4>Sarah J.</h4>
+                    <span>Software Developer</span>
+                  </div>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    "The personal vault feature is a game-changer. I can store
+                    sensitive documents and notes knowing they're protected with
+                    the highest level of encryption. The interface is also
+                    incredibly intuitive."
+                  </p>
+                </div>
+                <footer class="testimonial-author">
+                  <img
+                    src="https://img.freepik.com/free-photo/handsome-young-man-with-arms-crossed-white-background_23-2148222620.jpg"
+                    alt="Photo of Michael T."
+                  />
+                  <div>
+                    <h4>Michael T.</h4>
+                    <span>Business Consultant</span>
+                  </div>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    "As someone who manages accounts for my entire family,
+                    Pandora has made my life so much easier. The organization
+                    features with custom categories keep everything neatly
+                    arranged and accessible."
+                  </p>
+                </div>
+                <footer class="testimonial-author">
+                  <img
+                    src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+                    alt="Photo of Elena R."
+                  />
+                  <div>
+                    <h4>Elena R.</h4>
+                    <span>Accountant</span>
+                  </div>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    "Pandora sayesinde iş ve özel hayatımdaki tüm şifrelerimi
+                    güvenle saklayabiliyorum. Kullanımı çok kolay ve hızlı!"
+                  </p>
+                </div>
+                <footer class="testimonial-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="Photo of Ahmet Yılmaz"
+                  />
+                  <div>
+                    <h4>Ahmet Yılmaz</h4>
+                    <span>IT Uzmanı</span>
+                  </div>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    "Daha önce bu kadar pratik ve güvenli bir şifre yöneticisi
+                    kullanmamıştım. Artık tüm bilgilerim tek yerde ve güvende."
+                  </p>
+                </div>
+                <footer class="testimonial-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/65.jpg"
+                    alt="Photo of Barış Demir"
+                  />
+                  <div>
+                    <h4>Barış Demir</h4>
+                    <span>Finans Analisti</span>
+                  </div>
+                </footer>
+              </article>
+            </div>
+            <button class="slider-nav next">
+              <span class="material-icons">chevron_right</span>
+            </button>
+          </div>
+          <div class="control-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="faq">
+        <div class="container">
+          <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about Pandora</p>
+          </div>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>Is Pandora really secure?</h4>
+                <span class="material-icons">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, Pandora employs AES-256 encryption, the same standard
+                  used by governments and military organizations. Your data is
+                  encrypted locally before being sent to our servers, meaning
+                  only you can decrypt and access your information.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>What happens if I forget my master password?</h4>
+                <span class="material-icons">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Due to our zero-knowledge architecture, we cannot recover your
+                  master password if you forget it. This is intentional for
+                  maximum security. We recommend creating a password hint during
+                  setup and potentially storing a secure backup of your master
+                  password.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>Can I access Pandora on multiple devices?</h4>
+                <span class="material-icons">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Absolutely! Pandora syncronizes your encrypted data across all
+                  your devices, allowing you to access your passwords and
+                  personal information securely from anywhere.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>Is there a limit to how many passwords I can store?</h4>
+                <span class="material-icons">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  No, there's no limit to the number of passwords, notes, or
+                  personal information entries you can store with Pandora,
+                  regardless of which plan you're on.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>How does the categorization system work?</h4>
+                <span class="material-icons">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Pandora allows you to create custom categories to organize
+                  your passwords and personal data. You can create categories
+                  for work, personal, financial, or any other grouping that
+                  makes sense for your needs.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>Is my data backed up automatically?</h4>
+                <span class="material-icons">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, your encrypted data is automatically backed up to our
+                  secure servers. This ensures that even if you lose your
+                  device, your important information remains safe and accessible
+                  once you log in again.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Ready to Secure Your Digital Life?</h2>
+            <p>
+              Join thousands of users who trust Pandora with their sensitive
+              information.
+            </p>
+            <button
+              class="btn btn-primary btn-lg"
+              (click)="openRegisterModal()"
+            >
+              Create Your Free Account
+            </button>
+            <p class="cta-sub">
+              No credit card required. Get started in minutes.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img
+              src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg"
+              alt="Pandora Logo"
+              class="logo"
+            />
+            <h3>Pandora</h3>
+            <p>
+              Secure password & personal data management for the modern digital
+              life.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><span class="material-icons">facebook</span></a
+              >
+              <a href="#" aria-label="Twitter"
+                ><span class="material-icons">twitter</span></a
+              >
+              <a href="#" aria-label="LinkedIn"
+                ><span class="material-icons">linkedin</span></a
+              >
+              <a href="#" aria-label="Instagram"
+                ><span class="material-icons">instagram</span></a
+              >
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="link-group">
+              <h4>Product</h4>
+              <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Security</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Business</a></li>
+              </ul>
+            </div>
+            <div class="link-group">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="link-group">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Developer API</a></li>
+                <li><a href="#">Status</a></li>
+              </ul>
+            </div>
+            <div class="link-group">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">GDPR Compliance</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Pandora. All rights reserved.</p>
+          <div class="language-selector">
+            <span class="material-icons">language</span>
+            <select>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <app-register-modal
+      [open]="showRegisterModal"
+      (close)="closeRegisterModal()"
+      (register)="onRegister($event)"
+    ></app-register-modal>
+  </body>
+</html>
