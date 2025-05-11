@@ -1,4 +1,4 @@
-import { BaseDto } from './base-dto';
+import { BaseDto } from '../base/base-dto';
 
 export interface UserPasswordChangeDto extends BaseDto<string> {
   currentPassword: string;

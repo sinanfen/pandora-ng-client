@@ -1,0 +1,186 @@
+@import '../landing/landing.component.scss';
+
+.login-appbar {
+  width: 100vw;
+  height: 64px;
+  background: $white;
+  box-shadow: $shadow-md;
+  display: flex;
+  align-items: center;
+  padding: 0 2.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  .appbar-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    box-shadow: $shadow-sm;
+  }
+  .appbar-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: $primary-color;
+    letter-spacing: 1px;
+  }
+}
+
+.login-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $bg-light 60%, $bg-dark 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 64px;
+}
+
+.login-container {
+  background: $white;
+  box-shadow: $shadow-lg;
+  border-radius: $border-radius-xl;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  min-width: 370px;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: $transition;
+}
+
+.login-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $border-color;
+}
+.login-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $text-primary;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.register-link-header {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: $secondary-color;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+  &:hover {
+    color: $primary-color;
+    text-decoration: underline;
+  }
+}
+
+.login-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.login-field-lg .mat-form-field-flex {
+  min-height: 56px;
+  font-size: 1.15rem;
+}
+.login-field-lg .mat-input-element {
+  height: 2.5rem;
+  font-size: 1.15rem;
+  padding: 0.7rem 0.8rem;
+}
+
+.login-btn, .login-btn-lg {
+  background: $primary-color !important;
+  color: $white !important;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  height: 48px;
+  width: 100%;
+  box-shadow: $shadow-sm;
+  margin-top: 0.7rem;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: $secondary-color !important;
+    color: $white !important;
+  }
+}
+.login-btn-lg {
+  height: 54px;
+  font-size: 1.18rem;
+}
+
+.forgot-link-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.forgot-link {
+  color: $secondary-color;
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: color 0.2s;
+  &:hover {
+    color: $primary-color;
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-appbar {
+    padding: 0 1rem;
+    .appbar-title { font-size: 1.2rem; }
+  }
+  .login-container {
+    min-width: 96vw;
+    max-width: 99vw;
+    padding: 2rem 0.5rem 1.5rem 0.5rem;
+  }
+}
+
+// Tam oval ve premium inputlar için güçlü border-radius
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex,
+::ng-deep .mat-form-field-flex,
+::ng-deep .mat-input-element {
+  border-radius: 32px !important;
+  overflow: hidden !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  border-width: 2px !important;
+  border-radius: 32px !important;
+  color: $primary-color;
+  border-color: $primary-color;
+}
+
+.login-logo-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.login-logo-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: $shadow-sm;
+  background: $white;
+  object-fit: cover;
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 28px;
+} 

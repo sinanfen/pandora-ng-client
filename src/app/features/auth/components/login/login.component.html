@@ -1,0 +1,73 @@
+<div class="login-appbar">
+  <img src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg" alt="Pandora Logo" class="appbar-logo" />
+  <span class="appbar-title">Pandora</span>
+</div>
+<div class="login-bg">
+  <div class="login-container">
+    <div class="login-logo-top">
+      <img src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg" alt="Pandora Logo" class="login-logo-img" />
+    </div>
+    <div class="login-card-header">
+      <span class="login-title">LOG IN</span>
+      <a href="#" class="register-link-header" (click)="onRegisterLinkClick($event)">CREATE AN ACCOUNT</a>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="login-field login-field-lg">
+        <mat-label>Email address</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="email"
+          autocomplete="email"
+        />
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')"
+          >Email is required</mat-error
+        >
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')"
+          >Enter a valid email</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="login-field login-field-lg">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+          autocomplete="current-password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          type="button"
+          tabindex="-1"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')"
+          >Password is required</mat-error
+        >
+        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength') && !loginForm.get('password')?.hasError('required')">
+          Password must be at least 8 characters.
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        class="login-btn login-btn-lg"
+        type="submit"
+      >
+        LOG IN
+      </button>
+    </form>
+    <div class="forgot-link-wrapper">
+      <a href="#" class="forgot-link">FORGOT PASSWORD?</a>
+    </div>
+  </div>
+</div>
+
+<app-register-modal
+  [open]="showRegisterModal"
+  (close)="closeRegisterModal()"
+  (register)="onRegister($event)"
+></app-register-modal>

@@ -1,4 +1,4 @@
-import { BaseDto } from './base-dto';
+import { BaseDto } from '../base/base-dto';
 import { IPersonalVaultDto } from './personal-vault-base.interface';
 
 export interface PersonalVaultUpdateDto

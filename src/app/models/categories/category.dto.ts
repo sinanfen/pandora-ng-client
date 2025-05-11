@@ -1,7 +1,7 @@
-import { BaseDto } from './base-dto';
-import { UserDto } from './user.dto';
-import { PasswordVaultDto } from './password-vault.dto';
-import { PersonalVaultDto } from './personal-vault.dto';
+import { BaseDto } from '../base/base-dto';
+import { UserDto } from '../users/user.dto';
+import { PasswordVaultDto } from '../password-vaults/password-vault.dto';
+import { PersonalVaultDto } from '../personal-vaults/personal-vault.dto';
 
 export interface CategoryDto extends BaseDto<string> {
   userId: string;

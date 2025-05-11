@@ -1,8 +1,8 @@
-import { PasswordVaultDto } from './password-vault.dto';
-import { PersonalVaultDto } from './personal-vault.dto';
-import { CategoryDto } from './category.dto';
+import { PasswordVaultDto } from '../password-vaults/password-vault.dto';
+import { PersonalVaultDto } from '../personal-vaults/personal-vault.dto';
+import { CategoryDto } from '../categories/category.dto';
 import { UserRoleDto } from './user-role.dto';
-import { BaseDto } from './base-dto';
+import { BaseDto } from '../base/base-dto';
 
 export interface UserDto extends BaseDto<string> {
   id: string;

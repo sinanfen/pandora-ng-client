@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { RegisterModalComponent } from './register-modal.component';
 import { HttpClientService } from '../../../../core/services/http-client.service';
-import { UserRegisterDto } from '../../models/user-register.dto';
-import { UserDto } from '../../models/user.dto';
+import { UserRegisterDto } from '../../../../models/users/user-register.dto';
+import { UserDto } from '../../../../models/users/user.dto';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -18,18 +19,20 @@ export class LandingComponent {
 
   constructor(
     private httpService: HttpClientService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
+
+  goToLogin() {
+    this.router.navigate(['/auth/login']);
+  }
 
   openRegisterModal() {
     this.showRegisterModal = true;
   }
 
   closeRegisterModal() {
-    if (this.registerModal) {
-      this.registerModal.isLoading = false;
-      this.registerModal.hide();
-    }
+    this.showRegisterModal = false;
   }
 
   onRegister(user: UserRegisterDto) {

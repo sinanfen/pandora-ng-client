@@ -1,4 +1,4 @@
-import { BaseDto } from './base-dto';
+import { BaseDto } from '../base/base-dto';
 import { IPasswordVaultDto } from './password-vault-base.interface';
 
 export interface PasswordVaultUpdateDto extends BaseDto<string>, IPasswordVaultDto {

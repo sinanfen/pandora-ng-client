@@ -8,7 +8,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { UserRegisterDto } from '../../models/user-register.dto';
+import { UserRegisterDto } from '../../../../models/users/user-register.dto';
 
 @Component({
   selector: 'app-register-modal',
