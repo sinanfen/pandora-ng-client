@@ -8,6 +8,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { UserRegisterDto } from '../../../../models/users/user-register.dto';
 
 @Component({
@@ -27,20 +28,28 @@ export class RegisterModalComponent {
   showConfirmPassword = false;
   isLoading = false;
 
-  constructor(private fb: FormBuilder) {
-    this.registerForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required]],
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      password: ['', [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/)
-      ]],
-      confirmPassword: ['', [Validators.required]]
-    }, { validators: this.passwordMatchValidator });
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.registerForm = this.fb.group(
+      {
+        username: ['', [Validators.required, Validators.minLength(3)]],
+        email: ['', [Validators.required, Validators.email]],
+        phoneNumber: ['', [Validators.required]],
+        firstName: ['', [Validators.required]],
+        lastName: ['', [Validators.required]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.pattern(
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/
+            ),
+          ],
+        ],
+        confirmPassword: ['', [Validators.required]],
+      },
+      { validators: this.passwordMatchValidator }
+    );
   }
 
   toggleShowPassword() {
@@ -55,10 +64,17 @@ export class RegisterModalComponent {
     this.close.emit();
   }
 
+  // The following function is triggered when the user attempts to register.
+  // If the form is valid, the loading state is set and the registration event is emitted.
+  // If the form is not valid, all fields are marked as touched to display error messages.
   onRegister() {
     if (this.registerForm.valid) {
       this.isLoading = true;
       this.register.emit(this.registerForm.value);
+      this.register.subscribe(() => {
+        this.close.emit();
+        this.router.navigate(['/auth/login']);
+      });
     } else {
       this.registerForm.markAllAsTouched();
     }

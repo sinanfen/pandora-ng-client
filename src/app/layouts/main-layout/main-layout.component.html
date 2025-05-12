@@ -1,0 +1,64 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="side" [(opened)]="navMenuOpen" class="sidenav" fixedInViewport>
+    <div class="navmenu-header">
+      <img src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg" alt="Pandora Logo" />
+      <span class="navmenu-title">Pandora</span>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/categories" routerLinkActive="active">
+        <mat-icon>folder</mat-icon>
+        <span>Categories</span>
+      </a>
+      <a mat-list-item routerLink="/personal-vaults" routerLinkActive="active">
+        <mat-icon>person</mat-icon>
+        <span>Personal Vaults</span>
+      </a>
+      <a mat-list-item routerLink="/password-vaults" routerLinkActive="active">
+        <mat-icon>vpn_key</mat-icon>
+        <span>Password Vaults</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <header class="appbar">
+      <button mat-icon-button (click)="drawer.toggle()" aria-label="Toggle navigation menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="appbar-title">Pandora Vault</span>
+      <div class="appbar-spacer"></div>
+      <button mat-icon-button aria-label="Search">
+        <mat-icon>search</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Notifications">
+        <mat-icon>notifications_none</mat-icon>
+      </button>
+      <div class="user-profile" (click)="toggleMenu()">
+        <span class="user-name">{{ loggedInUser.firstName }}</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </div>
+      <div class="user-menu" *ngIf="menuOpen">
+        <div class="menu-header">
+          <div class="user-info">
+            <span class="user-full-name">{{ loggedInUser.firstName }} {{ loggedInUser.lastName }}</span>
+            <span class="user-email">{{ loggedInUser.email }}</span>
+          </div>
+        </div>
+        <ul>
+          <li><a href="#"><mat-icon>person</mat-icon> My Profile</a></li>
+          <li><a href="#"><mat-icon>settings</mat-icon> Account Settings</a></li>
+          <li><a href="#"><mat-icon>help</mat-icon> Help Center</a></li>
+          <li class="divider"></li>
+          <li><a href="#" (click)="logout()"><mat-icon>exit_to_app</mat-icon> Logout</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

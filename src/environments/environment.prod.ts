@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'https://localhost:7114/'
-}; 
+  API_URL: 'https://pandora-api-production.up.railway.app/',
+};

@@ -1,31 +1,43 @@
 <div class="login-appbar">
-  <img src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg" alt="Pandora Logo" class="appbar-logo" />
+  <img
+    src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg"
+    alt="Pandora Logo"
+    class="appbar-logo"
+  />
   <span class="appbar-title">Pandora</span>
 </div>
 <div class="login-bg">
   <div class="login-container">
     <div class="login-logo-top">
-      <img src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg" alt="Pandora Logo" class="login-logo-img" />
+      <img
+        src="https://st4.depositphotos.com/36808514/40873/v/450/depositphotos_408739296-stock-illustration-pandora-greek-myth-opening-evils.jpg"
+        alt="Pandora Logo"
+        class="login-logo-img"
+      />
     </div>
     <div class="login-card-header">
       <span class="login-title">LOG IN</span>
-      <a href="#" class="register-link-header" (click)="onRegisterLinkClick($event)">CREATE AN ACCOUNT</a>
+      <a
+        href="#"
+        class="register-link-header"
+        (click)="onRegisterLinkClick($event)"
+        >CREATE AN ACCOUNT</a
+      >
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="outline" class="login-field login-field-lg">
-        <mat-label>Email address</mat-label>
+        <mat-label>Email or Username</mat-label>
         <input
           matInput
-          formControlName="email"
-          type="email"
-          autocomplete="email"
+          formControlName="usernameOrEmail"
+          type="text"
+          autocomplete="username"
         />
-        <mat-error *ngIf="loginForm.get('email')?.hasError('required')"
-          >Email is required</mat-error
+        <mat-error
+          *ngIf="loginForm.get('usernameOrEmail')?.hasError('required')"
         >
-        <mat-error *ngIf="loginForm.get('email')?.hasError('email')"
-          >Enter a valid email</mat-error
-        >
+          Email or Username is required
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="login-field login-field-lg">
         <mat-label>Password</mat-label>
@@ -47,7 +59,12 @@
         <mat-error *ngIf="loginForm.get('password')?.hasError('required')"
           >Password is required</mat-error
         >
-        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength') && !loginForm.get('password')?.hasError('required')">
+        <mat-error
+          *ngIf="
+            loginForm.get('password')?.hasError('minlength') &&
+            !loginForm.get('password')?.hasError('required')
+          "
+        >
           Password must be at least 8 characters.
         </mat-error>
       </mat-form-field>
@@ -56,8 +73,16 @@
         color="primary"
         class="login-btn login-btn-lg"
         type="submit"
+        [disabled]="isLoading"
       >
-        LOG IN
+        <ng-container *ngIf="!isLoading">LOG IN</ng-container>
+        <mat-progress-spinner
+          *ngIf="isLoading"
+          diameter="24"
+          mode="indeterminate"
+          color="accent"
+          style="vertical-align: middle; display: inline-block; margin-left: 8px;"
+        ></mat-progress-spinner>
       </button>
     </form>
     <div class="forgot-link-wrapper">

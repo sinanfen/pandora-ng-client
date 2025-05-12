@@ -1,0 +1,39 @@
+<div class="dashboard-header">
+  <div class="dashboard-title">
+    <img
+      src="https://static.thenounproject.com/png/104062-200.png"
+      alt="Vault Icon"
+      class="dashboard-icon"
+    />
+    <span>Pandora Vault</span>
+  </div>
+  <button class="add-btn">+ Add New Item</button>
+</div>
+
+<div class="dashboard-welcome">
+  <h2>Welcome back!</h2>
+  <p>Your passwords and secure notes are safe and organized.</p>
+</div>
+
+<div class="dashboard-actions">
+  <button class="action-btn">All Items</button>
+  <button class="action-btn">Passwords</button>
+  <button class="action-btn">Secure Notes</button>
+  <button class="action-btn">Sharing Center</button>
+</div>
+
+<div class="dashboard-grid">
+  <div class="dashboard-card" *ngFor="let item of [1, 2, 3, 4, 5, 6]">
+    <div class="card-icon">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
+        alt="Password Icon"
+      />
+    </div>
+    <div class="card-content">
+      <div class="card-title">Example Account</div>
+      <div class="card-detail">username&#64;example.com</div>
+    </div>
+    <button class="card-action">View</button>
+  </div>
+</div>

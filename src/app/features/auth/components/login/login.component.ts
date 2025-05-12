@@ -14,6 +14,10 @@ import { RegisterModalComponent } from '../landing/register-modal.component';
 import { HttpClientService } from '../../../../core/services/http-client.service';
 import { ToastrService } from 'ngx-toastr';
 import { UserDto } from '../../../../models/users/user.dto';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UserLoginDto } from '../../../../models/users/user-login.dto';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +30,7 @@ import { UserDto } from '../../../../models/users/user.dto';
     MatButtonModule,
     MatIconModule,
     RegisterModalComponent,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
@@ -35,21 +40,46 @@ export class LoginComponent {
   hide = true;
   showRegisterModal = false;
   @ViewChild(RegisterModalComponent) registerModal?: RegisterModalComponent;
+  isLoading = false;
+
   constructor(
     private fb: FormBuilder,
     private httpService: HttpClientService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private http: HttpClient,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      usernameOrEmail: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // Giriş işlemleri burada yapılacak
-      console.log(this.loginForm.value);
+      this.isLoading = true;
+      const loginData: UserLoginDto = this.loginForm.value;
+
+      this.httpService
+        .post<{ success: boolean; token: string; message: string }>(
+          'auth/login',
+          loginData
+        )
+        .subscribe({
+          next: (response) => {
+            if (response.success) {
+              localStorage.setItem('token', response.token);
+              this.router.navigate(['/dashboard']);
+            }
+          },
+          error: (error) => {
+            console.error('Login failed:', error);
+            // Handle error (show error message to user)
+          },
+          complete: () => {
+            this.isLoading = false;
+          },
+        });
     }
   }
 
